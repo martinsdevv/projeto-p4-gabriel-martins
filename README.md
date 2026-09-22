@@ -1,6 +1,16 @@
 # P4 - Matchmaking competitivo
 
-**[P4-ETAPA-01] Proposta do problema**
+**[P4-ETAPA-01] Proposta do problema**  
+**[P4-ETAPA-02] Contrato semântico e testes** — ver [`testes/casos.md`](testes/casos.md)
+
+## Etapas
+
+| Tag | Entrega | Onde está |
+| --- | --- | --- |
+| `[P4-ETAPA-01]` | Proposta e especificação do problema | este README e [`docs/problema.md`](docs/problema.md) |
+| `[P4-ETAPA-02]` | Contrato de comportamento e casos de teste | [`testes/casos.md`](testes/casos.md) |
+
+A Etapa 2 congela **o que** o sistema deve fazer, com casos reutilizáveis nas quatro implementações. A especificação da Etapa 1 permanece como descrição do problema.
 
 ## Sobre o projeto
 
