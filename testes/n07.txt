@@ -1,0 +1,10 @@
+p01 | 1500 | Top | Mid, Jungle | 15 | 20 | - | BR
+p02 | 1500 | Top | ADC, Support | 15 | 20 | - | BR
+p03 | 1500 | Jungle | Top, Mid | 15 | 20 | - | BR
+p04 | 1500 | Jungle | Support, ADC | 15 | 20 | - | BR
+p05 | 1500 | Mid | Top, Jungle | 15 | 20 | - | BR
+p06 | 1500 | Mid | ADC, Support | 15 | 20 | - | BR
+p07 | 1500 | ADC | Mid, Support | 15 | 20 | - | BR
+p08 | 1500 | ADC | Top, Jungle | 15 | 20 | - | BR
+p09 | 1500 | Support | ADC, Mid | 15 | 20 | - | BR
+p10 | 1500 | Support | Top, Jungle | 15 | 20 | - | BR
