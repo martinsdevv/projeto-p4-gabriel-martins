@@ -1,7 +1,8 @@
 # P4 - Matchmaking competitivo
 
 **[P4-ETAPA-01] Proposta do problema**  
-**[P4-ETAPA-02] Contrato semântico e testes** — ver [`testes/casos.md`](testes/casos.md)
+**[P4-ETAPA-02] Contrato semântico e testes** — ver [`testes/casos.md`](testes/casos.md)  
+**[P4-ETAPA-03] Implementação imperativa** — ver [`imperativo/`](imperativo/) e [`imperativo/DECISOES.md`](imperativo/DECISOES.md)
 
 ## Etapas
 
@@ -9,8 +10,82 @@
 | --- | --- | --- |
 | `[P4-ETAPA-01]` | Proposta e especificação do problema | este README e [`docs/problema.md`](docs/problema.md) |
 | `[P4-ETAPA-02]` | Contrato de comportamento e casos de teste | [`testes/casos.md`](testes/casos.md) |
+| `[P4-ETAPA-03]` | Solução no paradigma imperativo | [`imperativo/`](imperativo/) |
 
 A Etapa 2 congela **o que** o sistema deve fazer, com casos reutilizáveis nas quatro implementações. A especificação da Etapa 1 permanece como descrição do problema.
+
+## Testes do modelo imperativo
+
+Os 18 casos ficam em [`testes/`](testes/) (`n01.txt` a `n10.txt`, `l01.txt` a `l04.txt`, `i01.txt` a `i04.txt`). Os comandos abaixo são rodados de dentro de `imperativo/`.
+
+No Windows, `go run` grava o executável na pasta temporária e o sistema pode recusar a abertura (`Access is denied`). Quando isso acontecer, use o `.exe` gerado na pasta do projeto.
+
+### Com o Go na máquina
+
+Um caso:
+
+```text
+go run . ..\testes\n01.txt
+```
+
+Troque o nome do arquivo para ver outro (`l03.txt`, `i01.txt`, etc.).
+
+Todos de uma vez, num relatório:
+
+```text
+go run . -relatorio ..\testes
+```
+
+A comparação automática com a saída do contrato:
+
+```text
+go test .
+```
+
+### Com o executável, sem instalar Go
+
+Os dois binários já estão em `imperativo/`. Os comandos são rodados de dentro dessa pasta.
+
+No Windows, o arquivo é [`imperativo.exe`](imperativo/imperativo.exe).
+
+Um caso:
+
+```text
+.\imperativo.exe ..\testes\n01.txt
+```
+
+Todos de uma vez:
+
+```text
+.\imperativo.exe -relatorio ..\testes
+```
+
+No Linux, o arquivo é [`imperativo`](imperativo/imperativo). Na primeira vez, libera a execução.
+
+Um caso:
+
+```text
+chmod +x imperativo
+./imperativo ../testes/n01.txt
+```
+
+Todos de uma vez:
+
+```text
+./imperativo -relatorio ../testes
+```
+
+Quem tiver o Go e quiser gerar de novo:
+
+```text
+go build -o imperativo.exe .
+```
+
+```text
+set GOOS=linux
+set GOARCH=amd64
+go build -o imperativo .
+```
 
 ## Sobre o projeto
 

@@ -38,6 +38,39 @@ type ErroEntrada struct {
 	Mensagem string
 }
 
+// Atribuicao é um jogador já colocado numa posição.
+// Jogador aponta para o registro que está na fila.
+type Atribuicao struct {
+	Jogador *Jogador
+	Posicao string
+}
+
+// Formacao é uma candidata: duas equipes de cinco, na ordem
+// Top, Jungle, Mid, ADC, Support. A busca é quem preenche as vagas;
+// avaliarFormacao só confere o registro que já chegou montado.
+type Formacao struct {
+	EquipeA [5]Atribuicao
+	EquipeB [5]Atribuicao
+}
+
+// Metricas guarda os acumuladores da avaliação. avaliarFormacao
+// preenche os campos por atribuição, na ordem das regras.
+type Metricas struct {
+	SomaA               int
+	SomaB               int
+	DiferencaHabilidade int
+	ForaPreferencia     int
+	ForaPrefA           int
+	ForaPrefB           int
+	DesequilibrioAlt    int
+	AmplitudeLatencia   int
+	Qualidade           int
+	EsperaMin           int
+	EsperaMax           int
+	EsperaSoma          int
+	LimiteDiferenca     int
+}
+
 func posicaoValida(nome string) bool {
 	for i := 0; i < len(posicoes); i++ {
 		if posicoes[i] == nome {

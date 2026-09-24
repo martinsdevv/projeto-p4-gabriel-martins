@@ -574,7 +574,7 @@ A Equipe A contém `p01` e, por R5, também `p02`. Qualquer saída que separe `p
 
 ### N06 — Fila com 12 jogadores: escolher o melhor subconjunto
 
-**Descrição:** A fila tem 12 jogadores. Dez deles formam a partida equilibrada de N01. Os outros dois têm habilidade muito alta e piorariam a diferença. O sistema deve selecionar os dez primeiros e deixar os dois fortes na fila.
+**Descrição:** A fila tem 12 jogadores. `p11` e `p12` têm habilidade 3000. Colocar só um deles desequilibra as equipes. Colocar os dois em equipes opostas mantém a diferença em zero e ainda reduz a amplitude de latência, porque `p02` e `p03` (latências 22 e 18) ficam de fora. O sistema deve escolher esse subconjunto.
 
 **Entrada:** os 10 jogadores de N01, nesta ordem, seguidos de:
 
@@ -585,21 +585,32 @@ p12 | 3000 | Jungle  | - | 5 | 20 | - | BR
 
 **Cálculo relevante:**
 
-Incluir `p11` no lugar de um Top ~1500 eleva `|somaA - somaB|` em cerca de 1500 pontos e reduz Q muito abaixo de 9993. O subconjunto `{p01,...,p10}` é ótimo e reproduz N01.
+Subconjunto `{p01,...,p10}` reproduz N01: diferença 0, amplitude 7, Q 9993.
+
+Subconjunto sem `p02` e `p03`, com `p11` e `p12` em equipes opostas:
+
+```text
+Equipe A: p08 Top 1510, p12 Jungle 3000, p01 Mid 1500, p09 ADC 1515, p10 Support 1495 → soma 9020
+Equipe B: p11 Top 3000, p07 Jungle 1495, p06 Mid 1500, p04 ADC 1520, p05 Support 1505 → soma 9020
+amplitude_latencia = 25 - 19 = 6
+Q = 10000 - 6 = 9994
+```
+
+9994 supera 9993. Trocar o lado dos dois jogadores de habilidade 3000 produz a mesma qualidade e os mesmos dez ids. A tupla canônica da Seção 6 fica com `p08` em Top da Equipe A, porque `p08` < `p11`.
 
 **Saída esperada:**
 
 ```text
 status: PARTIDA_FORMADA
-equipe_a: (p03, Top), (p02, Jungle), (p01, Mid), (p09, ADC), (p05, Support)
-equipe_b: (p08, Top), (p07, Jungle), (p06, Mid), (p04, ADC), (p10, Support)
+equipe_a: (p08, Top), (p12, Jungle), (p01, Mid), (p09, ADC), (p10, Support)
+equipe_b: (p11, Top), (p07, Jungle), (p06, Mid), (p04, ADC), (p05, Support)
 diferenca_habilidade: 0
 jogadores_fora_preferencia: 0
 desequilibrio_alternativas: 0
-qualidade: 9993
-espera: {min: 30, max: 60, media: 45.0}
-amplitude_latencia: 7
-fila_restante: [p11, p12]
+qualidade: 9994
+espera: {min: 5, max: 60, media: 34.0}
+amplitude_latencia: 6
+fila_restante: [p02, p03]
 ```
 
 ---

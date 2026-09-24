@@ -85,7 +85,7 @@ func validarIDs(fila []Jogador) (ErroEntrada, bool) {
 
 // validarGrupos conta ocorrências de cada grupo não vazio.
 // Grupo vazio (solo) não entra no mapa. Tamanho 1 também é válido:
-// a restrição de "permanecer junto" só importa na busca, mais adiante.
+// a restrição de "permanecer junto" só entra quando as equipes são montadas.
 func validarGrupos(fila []Jogador) (ErroEntrada, bool) {
 	contagem := map[string]int{}
 	var ordem []string

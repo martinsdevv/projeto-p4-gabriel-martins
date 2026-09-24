@@ -6,9 +6,9 @@ import (
 	"strings"
 )
 
-// lerFila percorre o texto linha a linha, acumula jogadores em um slice
-// e, se a validação passar, preenche Aceitas em cada registro.
-// O slice fila é o estado desta etapa: cresce por append a cada linha útil.
+// lerFila percorre o texto linha a linha e acumula os jogadores num slice.
+// A fila começa vazia e cresce com append a cada linha útil. Se a validação
+// passar, Aceitas é preenchido em cada registro.
 func lerFila(texto string) ([]Jogador, ErroEntrada, bool) {
 	var fila []Jogador
 	linhas := strings.Split(texto, "\n")
