@@ -2,7 +2,8 @@
 
 **[P4-ETAPA-01] Proposta do problema**  
 **[P4-ETAPA-02] Contrato semântico e testes** — ver [`testes/casos.md`](testes/casos.md)  
-**[P4-ETAPA-03] Implementação imperativa** — ver [`imperativo/`](imperativo/) e [`imperativo/DECISOES.md`](imperativo/DECISOES.md)
+**[P4-ETAPA-03] Implementação imperativa** — ver [`imperativo/`](imperativo/) e [`imperativo/DECISOES.md`](imperativo/DECISOES.md)  
+**[P4-ETAPA-04] Implementação orientada a objetos** — ver [`poo/`](poo/) e [`poo/reflexão.md`](poo/reflexão.md)
 
 ## Etapas
 
@@ -11,6 +12,7 @@
 | `[P4-ETAPA-01]` | Proposta e especificação do problema | este README e [`docs/problema.md`](docs/problema.md) |
 | `[P4-ETAPA-02]` | Contrato de comportamento e casos de teste | [`testes/casos.md`](testes/casos.md) |
 | `[P4-ETAPA-03]` | Solução no paradigma imperativo | [`imperativo/`](imperativo/) |
+| `[P4-ETAPA-04]` | Solução no paradigma orientado a objetos | [`poo/`](poo/) |
 
 A Etapa 2 congela **o que** o sistema deve fazer, com casos reutilizáveis nas quatro implementações. A especificação da Etapa 1 permanece como descrição do problema.
 
@@ -86,6 +88,27 @@ set GOOS=linux
 set GOARCH=amd64
 go build -o imperativo .
 ```
+
+## Testes do modelo orientado a objetos
+
+A solução em Java está em [`poo/src`](poo/src). A reflexão sobre a mudança de paradigma está em [`poo/reflexão.md`](poo/reflexão.md). Os comandos abaixo são rodados de dentro de `poo/`. O script compila e executa.
+
+No Windows:
+
+```text
+.\rodar.bat ..\testes\n01.txt
+.\rodar.bat -relatorio ..\testes
+```
+
+No Linux, na primeira vez, libera a execução:
+
+```text
+chmod +x rodar.sh
+./rodar.sh ../testes/n01.txt
+./rodar.sh -relatorio ../testes
+```
+
+Entrada inválida termina com código 1. Partida formada ou nenhuma partida termina com código 0.
 
 ## Sobre o projeto
 
